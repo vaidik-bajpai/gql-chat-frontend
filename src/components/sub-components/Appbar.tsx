@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom"
-import { Button } from "./Button"
+import { NavButton } from "./Button"
 
 export default function Appbar() {
     const navigate = useNavigate()
@@ -9,8 +9,8 @@ export default function Appbar() {
                 <div className="font-bold text-2xl text-white">Chatter-Box</div>
                 <div className="flex gap-1.5 items-center">
                     <div className="font-bold flex gap-2">
-                        <Button customStyles="text-purple-500 border-2 border-yellow-200 bg-white" buttonText="Signup" onClick={() => {navigate("/signup")}}/>
-                        <Button customStyles="text-purple-500 border-2 border-yellow-200 bg-white" buttonText="Login" onClick={() => {navigate("/login")}}/>
+                        <NavButton customStyles="text-purple-500 border-2 border-yellow-200 bg-white" buttonText="Signup" onClick={() => {navigate("/signup")}}/>
+                        <NavButton customStyles="text-purple-500 border-2 border-yellow-200 bg-white" buttonText="Login" onClick={() => {navigate("/login")}}/>
                     </div>
                 </div>
             </div>
