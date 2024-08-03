@@ -9,7 +9,7 @@ interface EventButtonInterface {
 export function EventButton({buttonText, onClick, customStyles}: EventButtonInterface) {
     
     return (
-        <button className={"rounded p-2 mt-3 "+ customStyles} onClick={onClick}>{buttonText}</button>
+        <button className={"rounded p-2 "+ customStyles} onClick={onClick}>{buttonText}</button>
     )
 }
 

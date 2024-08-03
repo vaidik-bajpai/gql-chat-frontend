@@ -6,7 +6,7 @@ interface ChatRoomWrapperProps {
 
 export function ChatRoomWrapper({children}: ChatRoomWrapperProps) {
     return (
-        <div className="w-[100%] px-8 py-4 border-yellow-200">
+        <div className="w-[70%] px-8 py-4 border-yellow-200 bg-purple-100 border-2 rounded flex flex-col h-full">
             {children}
         </div>
     )

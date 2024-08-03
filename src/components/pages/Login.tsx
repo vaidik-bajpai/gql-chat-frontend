@@ -3,10 +3,12 @@ import { Wrapper } from "../wrapper/Card";
 import { FormWrapper } from "../wrapper/FormWrapper";
 import { FormInput } from "../sub-components/FormInput";
 import { EventButton } from "../sub-components/Button";
+import { BottomText } from "../sub-components/BottomText";
 import { Title } from "../sub-components/Header";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../Queries";
+import { jwtDecode } from "jwt-decode";
 
 interface LoginForm {
     email: string
@@ -63,9 +65,10 @@ function  Login() {
             },
         })
         if (data) {
-            localStorage.setItem("token", data.login)
+            sessionStorage.setItem("token", data.login)
+            const token = jwtDecode(sessionStorage.getItem("token"))
             console.log(data.login)
-            navigate("/chatrooms")
+            navigate(`/chatrooms?user_id=${token.sub}`)
             setLoginData({email: "", password: ""})
         }
     }
@@ -80,6 +83,7 @@ function  Login() {
                     <FormInput label="Password" placeholder="********" error={loginErrors.password} onChange={(e) => handleChange(e)} id="password" inputType="password" value={loginData.password}/>
                     <EventButton buttonText="Submit" onClick={(e) => handleSubmit(e)} customStyles="text-white border-2 border-yellow-200 bg-purple-500"/>
                 </FormWrapper>
+                <BottomText text="Don't have an account?" buttonText="signup" handleClick={() => navigate("/login")}/>
             </Wrapper>
         </div>
     )

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { Title } from "../sub-components/Header"
 import { SubHeading } from "../sub-components/SubHeading"
 import { Wrapper } from "../wrapper/Card"
-import { Button } from "../sub-components/Button"
+import { NavButton } from "../sub-components/Button"
 import { FormWrapper } from "../wrapper/FormWrapper"
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
             <Title title="About Us"/>
             <FormWrapper>
                 <SubHeading text={formattedText}/>
-                <Button onClick={() => navigate("/chatrooms")} buttonText="Enter" customStyles="text-white border-2 border-yellow-200 bg-purple-500"/>
+                <NavButton onClick={() => navigate("/chatrooms")} buttonText="Enter" customStyles="text-white border-2 border-yellow-200 bg-purple-500"/>
             </FormWrapper>
         </Wrapper>
     )

@@ -7,6 +7,7 @@ import { EventButton } from "../sub-components/Button";
 import { Title } from "../sub-components/Header";
 import { SIGNUP_USER } from "../../Queries";
 import { Form, useNavigate } from "react-router-dom";
+import { BottomText } from "../sub-components/BottomText";
 
 interface Form {
     firstName: string
@@ -104,6 +105,7 @@ function  Signup() {
                     <FormInput label="Password" placeholder="********" error={formErrors.password}  onChange={handleChange} id="password" inputType="password" value={formData.password}/>
                     <EventButton buttonText="Submit" onClick={(e) => handleSubmit(e)} customStyles="text-white border-2 border-yellow-200 bg-purple-500"/>
                 </FormWrapper>
+                <BottomText text="Already have an account?" buttonText="login" handleClick={() => navigate("/login")}/>
             </Wrapper>
         </div>
     )
